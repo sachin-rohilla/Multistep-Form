@@ -58,7 +58,6 @@ function App() {
     });
   };
 
-  console.log(formData, currentStep);
   return (
     <>
       <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
