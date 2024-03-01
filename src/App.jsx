@@ -75,10 +75,17 @@ function App() {
             <div className="flex justify-between items-center py-2">
               {[1, 2, 3, 4].map((step, index) => (
                 <React.Fragment key={step}>
-                  {index > 0 && <div className="w-10 h-0.5 bg-gray-400"></div>}
+                  {index > 0 && (
+                    <div
+                      className={`
+                  w-10 h-0.5  ${
+                    currentStep >= step ? "bg-[#E91E63]" : "bg-gray-400"
+                  }`}
+                    ></div>
+                  )}
                   <div
                     className={`w-8 h-8 border-2 border-gray-400 rounded-full flex items-center justify-center ${
-                      step === currentStep
+                      step <= currentStep
                         ? "bg-[#E91E63] border-[#E91E63] text-white"
                         : ""
                     }`}
