@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { FaWpforms } from "react-icons/fa";
 import InputComp from "./components/InputComp";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function App() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-
     password: "",
-
     gender: "",
     role: "",
   });
   const [currentStep, setCurrentStep] = useState(1);
+  const [isExploding, setIsExploding] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,24 +44,29 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setCurrentStep(1);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      confirmEmail: "",
-      password: "",
-      confirmPassword: "",
-      gender: "",
-      role: "",
-    });
+    setIsExploding(true);
+    setTimeout(() => {
+      setCurrentStep(1);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        confirmEmail: "",
+        password: "",
+        confirmPassword: "",
+        gender: "",
+        role: "",
+      });
+      setIsExploding(false);
+    }, 2000);
   };
 
   return (
     <>
       <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
         <div className="w-96 h-[350px] m-auto border p-4 shadow-lg rounded-lg">
+          {isExploding && <ConfettiExplosion />}
+
           <div className="flex items-center justify-center gap-2 py-4">
             <FaWpforms className="text-2xl text-[#E91E63] " />
 
