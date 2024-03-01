@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaWpforms } from "react-icons/fa";
 import InputComp from "./components/InputComp";
 
 function App() {
@@ -62,7 +63,11 @@ function App() {
     <>
       <div className="flex justify-center items-center min-h-screen">
         <div className="w-96 h-96 m-auto border p-4 shadow-lg rounded-lg">
-          <h1 className="font-bold text-xl text-center">Multi Step Form</h1>
+          <div className="flex items-center justify-center gap-2 py-4">
+            <FaWpforms className="text-2xl text-[#E91E63] " />
+
+            <h1 className="font-bold text-xl text-center">Multi Step Form</h1>
+          </div>
           <form
             className="flex flex-col  items-center gap-2"
             onSubmit={handleSubmit}
