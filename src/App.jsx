@@ -61,8 +61,8 @@ function App() {
   console.log(formData, currentStep);
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="w-96 h-[300px] m-auto border p-4 shadow-lg rounded-lg">
+      <div className="flex justify-center items-center min-h-screen px-4 lg:px-0">
+        <div className="w-96 h-[350px] m-auto border p-4 shadow-lg rounded-lg">
           <div className="flex items-center justify-center gap-2 py-4">
             <FaWpforms className="text-2xl text-[#E91E63] " />
 
@@ -72,6 +72,23 @@ function App() {
             className="flex flex-col  items-center gap-2"
             onSubmit={handleSubmit}
           >
+            <div className="flex justify-between items-center py-2">
+              {[1, 2, 3, 4].map((step, index) => (
+                <React.Fragment key={step}>
+                  {index > 0 && <div className="w-10 h-0.5 bg-gray-400"></div>}
+                  <div
+                    className={`w-8 h-8 border-2 border-gray-400 rounded-full flex items-center justify-center ${
+                      step === currentStep
+                        ? "bg-[#E91E63] border-[#E91E63] text-white"
+                        : ""
+                    }`}
+                  >
+                    {step}
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+
             {currentStep === 1 && (
               <>
                 <InputComp
@@ -90,7 +107,6 @@ function App() {
                 />
               </>
             )}
-
             {currentStep === 2 && (
               <>
                 <InputComp
@@ -109,7 +125,6 @@ function App() {
                 />
               </>
             )}
-
             {currentStep === 3 && (
               <>
                 <InputComp
@@ -128,7 +143,6 @@ function App() {
                 />
               </>
             )}
-
             {currentStep === 4 && (
               <>
                 <InputComp
@@ -147,7 +161,6 @@ function App() {
                 />
               </>
             )}
-
             <div className="w-full flex justify-between mt-2">
               <button
                 className={`px-8 py-2 bg-[#E91E63] rounded-md text-white ${
