@@ -7,9 +7,9 @@ function App() {
     firstName: "",
     lastName: "",
     email: "",
-    confirmEmail: "",
+
     password: "",
-    confirmPassword: "",
+
     gender: "",
     role: "",
   });
@@ -29,8 +29,8 @@ function App() {
   const handleNext = () => {
     if (
       (currentStep === 1 && formData.firstName && formData.lastName) ||
-      (currentStep === 2 && formData.email && formData.confirmEmail) ||
-      (currentStep === 3 && formData.password && formData.confirmPassword)
+      (currentStep === 2 && formData.email) ||
+      (currentStep === 3 && formData.password)
     ) {
       setCurrentStep((prevStep) => prevStep + 1);
     }
@@ -81,7 +81,7 @@ function App() {
                   w-10 h-0.5  ${
                     currentStep >= step ? "bg-[#E91E63]" : "bg-gray-400"
                   }`}
-                    ></div>
+                    />
                   )}
                   <div
                     className={`w-8 h-8 border-2 border-gray-400 rounded-full flex items-center justify-center ${
@@ -123,13 +123,6 @@ function App() {
                   value={formData?.email}
                   handleChange={handleChange}
                 />
-                <InputComp
-                  title="confirmEmail"
-                  type="email"
-                  placeholder="Please confirm your email"
-                  value={formData?.confirmEmail}
-                  handleChange={handleChange}
-                />
               </>
             )}
             {currentStep === 3 && (
@@ -139,13 +132,6 @@ function App() {
                   type="password"
                   placeholder="Enter your password"
                   value={formData?.password}
-                  handleChange={handleChange}
-                />
-                <InputComp
-                  title="confirmPassword"
-                  type="password"
-                  placeholder="Please confirm your password"
-                  value={formData?.confirmPassword}
                   handleChange={handleChange}
                 />
               </>
@@ -187,10 +173,8 @@ function App() {
                 px-8 py-2 bg-[#E91E63] rounded-md text-white ${
                   (currentStep === 1 &&
                     !(formData.firstName && formData.lastName)) ||
-                  (currentStep === 2 &&
-                    !(formData.email && formData.confirmEmail)) ||
-                  (currentStep === 3 &&
-                    !(formData.password && formData.confirmPassword)) ||
+                  (currentStep === 2 && !formData.email) ||
+                  (currentStep === 3 && !formData.password) ||
                   (currentStep === 4 && !(formData.gender && formData.role))
                     ? "opacity-45 cursor-not-allowed"
                     : "opacity-100"
@@ -201,10 +185,8 @@ function App() {
                 disabled={
                   (currentStep === 1 &&
                     !(formData.firstName && formData.lastName)) ||
-                  (currentStep === 2 &&
-                    !(formData.email && formData.confirmEmail)) ||
-                  (currentStep === 3 &&
-                    !(formData.password && formData.confirmPassword)) ||
+                  (currentStep === 2 && !formData.email) ||
+                  (currentStep === 3 && !formData.password) ||
                   (currentStep === 4 && !(formData.gender && formData.role))
                 }
               >
