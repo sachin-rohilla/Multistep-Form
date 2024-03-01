@@ -9,7 +9,7 @@ const InputComp = ({ type, title, value, placeholder, handleChange }) => {
         value={value}
         placeholder={placeholder}
         onChange={handleChange}
-        className=" h-10 px-3 border-2 border-gray-300 rounded-md w-full"
+        className=" h-10 px-3 border-2 border-gray-300 rounded-md w-full focus:border-[#E91E63] focus:outline-none "
         required
       />
     </div>
