@@ -145,7 +145,7 @@ function App() {
 
           <div className="w-full flex justify-between">
             <button
-              className={`px-4 py-2 bg-yellow-400 rounded-md text-white ${
+              className={`px-4 py-2 bg-blue-400 rounded-md text-white ${
                 currentStep === 1
                   ? "opacity-45 cursor-not-allowed"
                   : "opacity-100"
@@ -157,7 +157,7 @@ function App() {
               Prev
             </button>
             <button
-              className="px-4 py-2 bg-yellow-400 rounded-md text-white"
+              className="px-4 py-2 bg-blue-400 rounded-md text-white"
               type={currentStep === 4 ? "submit" : "button"}
               onClick={handleNext}
               disabled={
